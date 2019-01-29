@@ -1,4 +1,4 @@
-package com.project.search;
+package search;
 
 class Interpolation {
     /*
