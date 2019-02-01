@@ -16,21 +16,22 @@ class Interpolation {
      */
 
     private static int search(int[] arr, int x) {
-        int lo = 0, hi = (arr.length - 1);
+        int lo = 0, hi = arr.length - 1;
 
-        while (lo <= hi && x >= arr[lo] && x <= arr[hi]) {
-            var pos = lo +
-                    (hi - lo) / (arr[hi] - arr[lo]) * (x - arr[lo]);
+        if (x >= arr[lo] && x <= arr[hi])
+            while (lo <= hi) {
+                var pos = lo +
+                        (hi - lo) / (arr[hi] - arr[lo]) * (x - arr[lo]);
 
-            if (arr[pos] == x)
-                return pos;
+                if (arr[pos] == x)
+                    return pos;
 
-            if (arr[pos] < x)
-                lo = pos + 1;
+                if (arr[pos] < x)
+                    lo = pos + 1;
 
-            else
-                hi = pos - 1;
-        }
+                else
+                    hi = pos - 1;
+            }
         return -1;
     }
 

@@ -6,7 +6,7 @@ class Binary {
     // recursion implementation
     // auxiliary space - O(log n) call stack space
     private static int search(int[] arr, int left, int right, int x) {
-        return x > arr[left] || x < arr[right] ? search0(arr, left, right, x) : -1;
+        return x > arr[left] && x < arr[right] ? search0(arr, left, right, x) : -1;
     }
 
     private static int search0(int[] arr, int left, int right, int x) {
@@ -38,7 +38,7 @@ class Binary {
     // iterative implementation
     private static int search(int[] arr, int x) {
         int left = 0, right = arr.length - 1;
-        if (x > arr[left] || x < arr[right])
+        if (x > arr[left] && x < arr[right])
             while (left <= right) {
                 var middle = left + (right - left) / 2;
                 if (arr[middle] == x)
