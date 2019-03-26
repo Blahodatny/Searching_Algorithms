@@ -17,7 +17,6 @@ class Pair {
                 res_r = right;
                 diff = abs;
             }
-
             if (arr[left] + arr[right] > x)
                 right--;
             else

@@ -1,0 +1,18 @@
+language: java
+sudo: false # faster builds
+install: true
+
+jdk:
+  - openjdk12
+
+jobs:
+  include:
+    - script:
+        - javac -classpath src/main/java src/main/java/search/Binary.java
+        - java -classpath src/main/java search.Binary
+    - script:
+        - javac -classpath src/main/java src/main/java/search/Interpolation.java
+        - java -classpath src/main/java search.Interpolation
+    - script:
+        - javac -classpath src/main/java src/main/java/search/Pair.java
+        - java -classpath src/main/java search.Pair

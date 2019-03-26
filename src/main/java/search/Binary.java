@@ -7,10 +7,8 @@ class Binary {
     // auxiliary space - O(log n) call stack space
     private static int search(int[] arr, int left, int right, int x) {
         return x >= arr[left] && x <= arr[right] ?
-                x == arr[left] ?
-                        left :
-                        x == arr[right] ?
-                                right :
+                x == arr[left] ? left :
+                        x == arr[right] ? right :
                                 search0(arr, left, right, x) :
                 -1;
     }
@@ -18,10 +16,8 @@ class Binary {
     private static int search0(int[] arr, int left, int right, int x) {
         if (left <= right) {
             var middle = left + right >>> 1;
-            return arr[middle] == x ?
-                    middle :
-                    arr[middle] > x ?
-                            search0(arr, left, middle - 1, x) :
+            return arr[middle] == x ? middle :
+                    arr[middle] > x ? search0(arr, left, middle - 1, x) :
                             search0(arr, middle + 1, right, x);
         }
         return -1;
